@@ -1,0 +1,5 @@
+D:\GitHub\HW2\PotterShoppingCart\obj\Debug\PotterShoppingCart.csprojResolveAssemblyReference.cache
+D:\GitHub\HW2\PotterShoppingCart\bin\Debug\PotterShoppingCart.dll
+D:\GitHub\HW2\PotterShoppingCart\bin\Debug\PotterShoppingCart.pdb
+D:\GitHub\HW2\PotterShoppingCart\obj\Debug\PotterShoppingCart.dll
+D:\GitHub\HW2\PotterShoppingCart\obj\Debug\PotterShoppingCart.pdb
