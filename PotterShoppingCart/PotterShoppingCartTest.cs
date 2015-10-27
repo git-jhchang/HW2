@@ -63,5 +63,26 @@ namespace PotterShoppingCart
             // assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test4_一二三四集各買了一本_價格應為100乘以4乘以80percent等於320元()
+        {
+            // arrange
+            var bought_books = new List<Book>
+            {
+                new Book { name = "vol 1", price = 100 },
+                new Book { name = "vol 2", price = 100 },
+                new Book { name = "vol 3", price = 100 },
+                new Book { name = "vol 4", price = 100 }
+            };
+            var target = new ShoppingCart(bought_books);
+            var expected = 320;
+
+            // act
+            var actual = target.CountPrice();
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
