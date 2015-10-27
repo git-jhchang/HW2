@@ -21,7 +21,26 @@ namespace PotterShoppingCart
             // act
             var actual = target.CountPrice();
 
-            // asert
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Test2_第一集買一本_第二集也買一本_價格應為100乘以2乘以0dot95等於190元()
+        {
+            // arrange
+            var bought_books = new List<Book>
+            {
+                new Book { name = "vol 1", price = 100 },
+                new Book { name = "vol 2", price = 100 }
+            };
+            var target = new ShoppingCart(bought_books);
+            var expected = 190;
+
+            // act
+            var actual = target.CountPrice();
+
+            // assert
             Assert.AreEqual(expected, actual);
         }
     }
