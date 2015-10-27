@@ -13,7 +13,7 @@ namespace PotterShoppingCart
             // arrange
             var bought_books = new List<Book>
             {
-                new Book { name = "vol 1", price = 100 }
+                new Book { volume = 1, price = 100 }
             };
             var target = new ShoppingCart(bought_books);
             var expected = 100;
@@ -31,8 +31,8 @@ namespace PotterShoppingCart
             // arrange
             var bought_books = new List<Book>
             {
-                new Book { name = "vol 1", price = 100 },
-                new Book { name = "vol 2", price = 100 }
+                new Book { volume = 1, price = 100 },
+                new Book { volume = 2, price = 100 }
             };
             var target = new ShoppingCart(bought_books);
             var expected = 190;
@@ -50,9 +50,9 @@ namespace PotterShoppingCart
             // arrange
             var bought_books = new List<Book>
             {
-                new Book { name = "vol 1", price = 100 },
-                new Book { name = "vol 2", price = 100 },
-                new Book { name = "vol 3", price = 100 }
+                new Book { volume = 1, price = 100 },
+                new Book { volume = 2, price = 100 },
+                new Book { volume = 3, price = 100 }
             };
             var target = new ShoppingCart(bought_books);
             var expected = 270;
@@ -70,10 +70,10 @@ namespace PotterShoppingCart
             // arrange
             var bought_books = new List<Book>
             {
-                new Book { name = "vol 1", price = 100 },
-                new Book { name = "vol 2", price = 100 },
-                new Book { name = "vol 3", price = 100 },
-                new Book { name = "vol 4", price = 100 }
+                new Book { volume = 1, price = 100 },
+                new Book { volume = 2, price = 100 },
+                new Book { volume = 3, price = 100 },
+                new Book { volume = 4, price = 100 }
             };
             var target = new ShoppingCart(bought_books);
             var expected = 320;
@@ -91,11 +91,11 @@ namespace PotterShoppingCart
             // arrange
             var bought_books = new List<Book>
             {
-                new Book { name = "vol 1", price = 100 },
-                new Book { name = "vol 2", price = 100 },
-                new Book { name = "vol 3", price = 100 },
-                new Book { name = "vol 4", price = 100 },
-                new Book { name = "vol 5", price = 100 }
+                new Book { volume = 1, price = 100 },
+                new Book { volume = 2, price = 100 },
+                new Book { volume = 3, price = 100 },
+                new Book { volume = 4, price = 100 },
+                new Book { volume = 5, price = 100 }
             };
             var target = new ShoppingCart(bought_books);
             var expected = 375;
@@ -113,10 +113,10 @@ namespace PotterShoppingCart
             // arrange
             var bought_books = new List<Book>
             {
-                new Book { name = "vol 1", price = 100 },
-                new Book { name = "vol 2", price = 100 },
-                new Book { name = "vol 3", price = 100 },
-                new Book { name = "vol 3", price = 100 },
+                new Book { volume = 1, price = 100 },
+                new Book { volume = 2, price = 100 },
+                new Book { volume = 3, price = 100 },
+                new Book { volume = 3, price = 100 },
             };
             var target = new ShoppingCart(bought_books);
             var expected = 370;

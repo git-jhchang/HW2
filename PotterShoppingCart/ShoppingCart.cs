@@ -15,7 +15,6 @@ namespace PotterShoppingCart
             this._bought_books = bought_books;
         }
 
-
         internal object CountPrice()
         {
             double total = 0;
@@ -46,7 +45,7 @@ namespace PotterShoppingCart
 
     public class Book
     {
-        public string name { get; set; }
+        public int volume { get; set; }
         public double price { get; set; }
     }
 }
