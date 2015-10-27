@@ -7,13 +7,10 @@ namespace PotterShoppingCart
 {
     public class ShoppingCart
     {
-        //private List<Book> _bought_books; // used to record the books user bought
         Dictionary<int, List<Book>> _book_set = new Dictionary<int, List<Book>>(); // use to group book set
 
         public ShoppingCart(List<Book> bought_books)
         {
-            //_bought_books = bought_books;
-            //GroupBooks();
             bool grouped;
             int total_set = 1;
             _book_set.Add(total_set, new List<Book>());
