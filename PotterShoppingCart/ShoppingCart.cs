@@ -7,31 +7,24 @@ namespace PotterShoppingCart
 {
     public class ShoppingCart
     {
-        private List<Book> _bought_books; // used to record the books user bought
+        //private List<Book> _bought_books; // used to record the books user bought
         Dictionary<int, List<Book>> _book_set = new Dictionary<int, List<Book>>(); // use to group book set
 
         public ShoppingCart(List<Book> bought_books)
         {
-            _bought_books = bought_books;
-            GroupBooks();
-        }
-
-        private void GroupBooks()
-        {
+            //_bought_books = bought_books;
+            //GroupBooks();
             bool grouped;
             int total_set = 1;
             _book_set.Add(total_set, new List<Book>());
-            foreach (var book in _bought_books)
+            foreach (var book in bought_books)
             {
                 grouped = false;
                 foreach (KeyValuePair<int, List<Book>> bookset in _book_set)
                 {
-                    if (bookset.Value.Exists(item => item.volume == book.volume))
+                    if (!bookset.Value.Exists(item => item.volume == book.volume))
                     {
-                        continue;
-                    }
-                    else
-                    {
+                        // book is not in this set, add to this set
                         bookset.Value.Add(book);
                         grouped = true;
                         break;
