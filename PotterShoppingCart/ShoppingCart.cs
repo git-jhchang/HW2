@@ -7,22 +7,46 @@ namespace PotterShoppingCart
 {
     public class ShoppingCart
     {
-        private List<Book> _bought_books;
+        private List<Book> _bought_books; // used to record the books user bought
+        Dictionary<int, List<Book>> _book_set = new Dictionary<int, List<Book>>(); // use to group book set
 
         public ShoppingCart(List<Book> bought_books)
         {
-            // TODO: Complete member initialization
-            this._bought_books = bought_books;
+            _bought_books = bought_books;
+            GroupBooks();
         }
 
-        internal object CountPrice()
+        private void GroupBooks()
         {
-            double total = 0;
+            bool grouped;
+            int total_set = 1;
+            _book_set.Add(total_set, new List<Book>());
             foreach (var book in _bought_books)
             {
-                total += book.price;
+                grouped = false;
+                foreach (KeyValuePair<int, List<Book>> bookset in _book_set)
+                {
+                    if (bookset.Value.Exists(item => item.volume == book.volume))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        bookset.Value.Add(book);
+                        grouped = true;
+                        break;
+                    }
+                }
+                if (!grouped)
+                {
+                    total_set += 1;
+                    _book_set.Add(total_set, new List<Book> { book });
+                }
             }
-            int booknum = this._bought_books.Count;
+        }
+
+        private double GetDiscount(int booknum)
+        {
             double discount = 1;
             switch (booknum)
             {
@@ -39,7 +63,22 @@ namespace PotterShoppingCart
                     discount -= 0.05;
                     break;
             }
-            return (int)(total * discount);
+            return discount;
+        }
+
+        internal object CountPrice()
+        {
+            double total = 0;
+            foreach (KeyValuePair<int, List<Book>> bookset in _book_set)
+            {
+                double set_price = 0;
+                foreach (var book in bookset.Value)
+                {
+                    set_price += book.price;
+                }
+                total += set_price * GetDiscount(bookset.Value.Count);
+            }
+            return (int)total;
         }
     }
 
