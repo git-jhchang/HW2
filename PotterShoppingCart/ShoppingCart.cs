@@ -18,7 +18,29 @@ namespace PotterShoppingCart
 
         internal object CountPrice()
         {
-            throw new NotImplementedException();
+            double total = 0;
+            foreach (var book in _bought_books)
+            {
+                total += book.price;
+            }
+            int booknum = this._bought_books.Count;
+            double discount = 1;
+            switch (booknum)
+            {
+                case 5:
+                    discount -= 0.25;
+                    break;
+                case 4:
+                    discount -= 0.2;
+                    break;
+                case 3:
+                    discount -= 0.1;
+                    break;
+                case 2:
+                    discount -= 0.05;
+                    break;
+            }
+            return (int)(total * discount);
         }
     }
 
